@@ -1,0 +1,146 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hjalte Clicker Deluxe</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+    <div class="particles"></div>
+    
+    <div class="game-container">
+        <!-- Header Area -->
+        <header class="game-header">
+            <h1 class="game-title">HJALTE CLICKER</h1>
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-icon">⏱️</span>
+                    <span id="play-time">00:00:00</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">👆</span>
+                    <span id="total-clicks">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-main">
+            <!-- Left Column - Currencies -->
+            <div class="game-column">
+                <div class="currency-panel">
+                    <h2>Resources</h2>
+                    <div class="currency" id="shaba-currency">
+                        <div class="currency-header">
+                            <span class="currency-icon">🪙</span>
+                            <span class="currency-name">Shabas</span>
+                        </div>
+                        <span class="currency-amount" id="shabas">0</span>
+                        <div class="currency-income" id="shaba-income">+0/s</div>
+                    </div>
+                    
+                    <div class="currency" id="igolo-currency">
+                        <div class="currency-header">
+                            <span class="currency-icon">💎</span>
+                            <span class="currency-name">Igolos</span>
+                        </div>
+                        <span class="currency-amount" id="igolos">0</span>
+                    </div>
+                    
+                    <div class="currency" id="blorp-currency">
+                        <div class="currency-header">
+                            <span class="currency-icon">🍄</span>
+                            <span class="currency-name">Blorps</span>
+                        </div>
+                        <span class="currency-amount" id="blorps">0</span>
+                    </div>
+                </div>
+                
+                <div class="prestige-panel">
+                    <h2>Ascension</h2>
+                    <div class="prestige-info">
+                        <div>Current Multiplier: <span id="prestige-mult">1x</span></div>
+                        <div>Next Reset at: <span id="next-prestige">1,000</span> Shabas</div>
+                    </div>
+                    <button id="prestige-btn" class="prestige-button">ASCEND</button>
+                </div>
+            </div>
+            
+            <!-- Center Column - Clicker -->
+            <div class="game-column center-column">
+                <div class="clicker-container">
+                    <div class="clicker-circle" id="click-target">
+                        <img src="assets/hjalte.png" alt="Hjalte" class="clicker-image">
+                        <div class="clicker-level">Lv.<span id="hjalte-level">1</span></div>
+                        <div class="click-prompt">CLICK ME!</div>
+                    </div>
+                    <div class="clicker-stats">
+                        <div>Power: <span id="click-power">1</span></div>
+                        <div>Critical: <span id="crit-chance">5%</span></div>
+                    </div>
+                </div>
+                
+                <div class="event-log" id="event-log">
+                    <div class="event-entry">Welcome to Hjalte Clicker!</div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Upgrades/Minigames -->
+            <div class="game-column">
+                <div class="upgrades-panel">
+                    <h2>Upgrades</h2>
+                    <div class="upgrades-tabs">
+                        <button class="tab-btn active" data-tab="click">Click</button>
+                        <button class="tab-btn" data-tab="auto">Auto</button>
+                        <button class="tab-btn" data-tab="boost">Boost</button>
+                    </div>
+                    
+                    <div class="upgrades-list" id="click-upgrades">
+                        <!-- Filled by JS -->
+                    </div>
+                    
+                    <div class="upgrades-list hidden" id="auto-upgrades">
+                        <!-- Filled by JS -->
+                    </div>
+                    
+                    <div class="upgrades-list hidden" id="boost-upgrades">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+                
+                <div class="minigame-panel">
+                    <h2>Minigames</h2>
+                    <div class="minigame" id="blorp-farm">
+                        <h3>Blorp Farm</h3>
+                        <div class="minigame-display">
+                            <div class="farm-grid"></div>
+                        </div>
+                        <div class="minigame-controls">
+                            <button class="farm-btn" id="plant-btn">Plant (5 Blorps)</button>
+                            <button class="farm-btn" id="harvest-btn" disabled>Harvest</button>
+                        </div>
+                    </div>
+                    
+                    <div class="minigame" id="shaba-mine">
+                        <h3>Shaba Mine</h3>
+                        <div class="minigame-display">
+                            <div class="mine-grid"></div>
+                        </div>
+                        <div class="minigame-info">
+                            <div>Depth: <span id="mine-depth">1</span></div>
+                            <div>Stamina: <span id="mine-stamina">10</span>/10</div>
+                        </div>
+                        <button class="mine-btn" id="mine-btn">Dig!</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
